@@ -8,6 +8,7 @@ from selene import config
 from selene.common.none_object import NoneObject
 from selene.support.conditions import have
 from selene.support.jquery_style_selectors import s, ss
+from tests.acceptance.helpers.helper import get_test_driver
 from tests.integration.helpers.givenpage import GivenPage
 
 GIVEN_PAGE = NoneObject('GivenPage')  # type: GivenPage
@@ -15,7 +16,7 @@ original_timeout = config.timeout
 
 
 def setup_module(m):
-    driver = webdriver.Firefox()
+    driver = get_test_driver()
     browser.set_driver(driver)
     global GIVEN_PAGE
     GIVEN_PAGE = GivenPage(driver)
