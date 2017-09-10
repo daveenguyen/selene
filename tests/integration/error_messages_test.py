@@ -134,7 +134,7 @@ def test_inner_selement_search_fails_with_message_when_implicitly_waits_for_cond
          'to assert Visible',
          "for first_by('css selector', '#not-existing')",
          '',
-         'reason: NoSuchElementException: Unable to locate element: {"method":"css selector","selector":"#not-existing"}',
+         'reason: NoSuchElementException: Unable to locate element: #not-existing',
          'screenshot: //.selene/screenshots/*/screen_*.png']
 
 
