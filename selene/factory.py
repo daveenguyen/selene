@@ -70,10 +70,8 @@ def __start_chrome():
                             desired_capabilities=config.desired_capabilities)
 
 
-def __start_firefox(name):
-    executable_path = "wires"
-    if name == BrowserName.MARIONETTE:
-        executable_path = GeckoDriverManager().install()
+def __start_firefox():
+    executable_path = GeckoDriverManager().install()
     driver = webdriver.Firefox(capabilities=config.desired_capabilities,
                                executable_path=executable_path)
     if config.start_maximized:
@@ -92,7 +90,7 @@ def __get_driver(name):
     elif name == BrowserName.PHANTOMJS:
         return __start_phantomjs()
     else:
-        return __start_firefox(name)
+        return __start_firefox()
 
 
 def _start_driver(name):
