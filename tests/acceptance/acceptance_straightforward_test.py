@@ -5,6 +5,9 @@ from selene.api import *
 app_url = 'file://' + os.path.abspath(os.path.dirname(__file__)) + '/../resources/todomvcapp/home.html'
 
 
+def teardown_module(m):
+    browser.quit()
+
 class TestTodoMVC(object):
 
     def test_selene_demo(self):
