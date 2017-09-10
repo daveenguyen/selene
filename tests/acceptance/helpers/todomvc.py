@@ -5,6 +5,7 @@ from selenium.webdriver.support.expected_conditions import element_to_be_clickab
 from selenium.webdriver.support.wait import WebDriverWait
 
 from selene import config
+from selene.api import have, ss
 from selene.conditions import visible
 from selene.browser import driver
 from selene.support.jquery_style_selectors import s
@@ -49,7 +50,7 @@ def given(*tasks):
     execute_js(script)
 
     open_todomvc()
-
+    ss("#todo-list>li").should(have.size_at_least(len(tasks)))
 
 def given_empty_tasks():
     given()
