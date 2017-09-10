@@ -386,4 +386,9 @@ class IWebDriver(ISearchContext):
         # todo: type?
         pass
 
+    @abstractproperty
+    def w3c(self):
+        # type: () -> bool
+            pass
+
 IWebDriver.register(WebDriver)
