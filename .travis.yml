@@ -3,7 +3,7 @@ sudo: true
 dist: trusty
 
 addons:
-  firefox: latest
+  firefox: latest-beta
 
 language: python
 python:
