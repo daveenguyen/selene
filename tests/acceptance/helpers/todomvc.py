@@ -26,7 +26,7 @@ def open_todomvc():
 
 def given_at_other_page():
     if not satisfied(s("#order_details"), visible):
-        driver().get('file://' + os.path.abspath(os.path.dirname(__file__)) + '/../resources/orderapp/order.html')
+        driver().get('file://' + os.path.abspath(os.path.dirname(__file__)) + '/../../resources/orderapp/order.html')
 
 
 def execute_js(js_string):
