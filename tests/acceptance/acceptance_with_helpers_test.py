@@ -89,7 +89,12 @@ def assert_no_tasks():
 
 
 def edit(old_task_name, new_task_name):
-    tasks.element_by(exact_text(old_task_name)).double_click()
+    # Marionette Double Click still in progress
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1385476
+    # tasks.element_by(exact_text(old_task_name)).double_click()
+    double_click_js = """$('label:contains("{text}")', arguments[0]).dblclick()""".format(text=old_task_name)
+    web_element = tasks.element_by(exact_text(old_task_name)).get_actual_webelement()
+    driver().execute_script(double_click_js, web_element)
     tasks.element_by(css_class("editing")).element(".edit").set_value(new_task_name).press_enter()
     # compare:
     # tasks.s(exact_text(old_task_name)).s("label").double_click()
