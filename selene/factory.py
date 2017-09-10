@@ -74,8 +74,10 @@ def __start_firefox():
     executable_path = GeckoDriverManager().install()
     driver = webdriver.Firefox(capabilities=config.desired_capabilities,
                                executable_path=executable_path)
-    if config.start_maximized:
-        driver.maximize_window()
+    # maximizeWindow hangs if window is already maximised
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1375185
+    # if config.start_maximized:
+    #     driver.maximize_window()
     return driver
 
 
